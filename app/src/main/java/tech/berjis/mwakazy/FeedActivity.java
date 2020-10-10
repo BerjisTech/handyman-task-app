@@ -143,7 +143,6 @@ public class FeedActivity extends AppCompatActivity {
 
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps();
-
         }
     }
 
@@ -182,6 +181,7 @@ public class FeedActivity extends AppCompatActivity {
         for (int grantResult : grantResults) {
             if (grantResult == PackageManager.PERMISSION_GRANTED) {
                 statusCheck();
+                getUserArea();
             }
         }
     }
@@ -224,7 +224,7 @@ public class FeedActivity extends AppCompatActivity {
                         categoriesList.add(l);
                     }
                 }
-                CategoriesAdapter = new CategoriesAdapter(FeedActivity.this, categoriesList);
+                CategoriesAdapter = new CategoriesAdapter(FeedActivity.this, categoriesList, "");
                 categoryRecycler.setAdapter(CategoriesAdapter);
             }
 

@@ -182,6 +182,7 @@ public class ByCategoryActivity extends AppCompatActivity {
         for (int grantResult : grantResults) {
             if (grantResult == PackageManager.PERMISSION_GRANTED) {
                 statusCheck();
+                getUserArea();
             }
         }
     }
@@ -204,7 +205,7 @@ public class ByCategoryActivity extends AppCompatActivity {
                         categoriesList.add(l);
                     }
                 }
-                CategoriesAdapter = new CategoriesAdapter(ByCategoryActivity.this, categoriesList);
+                CategoriesAdapter = new CategoriesAdapter(ByCategoryActivity.this, categoriesList, "");
                 categoryRecycler.setAdapter(CategoriesAdapter);
             }
 

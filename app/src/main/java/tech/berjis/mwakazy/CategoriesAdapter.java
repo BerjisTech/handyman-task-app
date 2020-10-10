@@ -20,16 +20,23 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     List<Categories> listData;
     Context mContext;
+    String ui;
 
-    CategoriesAdapter(Context mContext, List<Categories> listData) {
+    CategoriesAdapter(Context mContext, List<Categories> listData, String ui) {
         this.mContext = mContext;
         this.listData = listData;
+        this.ui = ui;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.categories, parent, false);
+        View view;
+        if (ui.equals("categories")) {
+            view = LayoutInflater.from(mContext).inflate(R.layout.categories, parent, false);
+        } else {
+            view = LayoutInflater.from(mContext).inflate(R.layout.categories_small, parent, false);
+        }
         return new ViewHolder(view);
     }
 
